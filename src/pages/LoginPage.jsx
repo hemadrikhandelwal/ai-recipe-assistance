@@ -1,10 +1,29 @@
 import { useState } from "react";
+import { login } from "../services/authService";
 
 function LoginPage() {
 
   const [username, setUsername] = useState('');
   const [password , setPassword] = useState('');
   const [showPassword,setShowPassword] = useState(false);
+
+  const handleLogin = async ()=>{
+    event.preventDefault()
+    try{
+      
+    const user = await login({
+       username,
+      password
+    }
+    );
+    console.log(user);
+    localStorage.setItem("accessToken", user.accessToken);
+
+    }catch(error){
+      console.error(error)
+    }
+    
+  }
 
 
 
@@ -19,7 +38,7 @@ function LoginPage() {
           Welcome back! Please login to continue.
         </p>
 
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleLogin}>
           <div>
             <label className="block text-sm font-medium mb-2">
               Username
@@ -59,6 +78,8 @@ function LoginPage() {
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+           
+            
           >
             Login
           </button>
