@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { login } from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
 
   const [username, setUsername] = useState('');
   const [password , setPassword] = useState('');
   const [showPassword,setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = async ()=>{
     event.preventDefault()
@@ -18,6 +20,7 @@ function LoginPage() {
     );
     console.log(user);
     localStorage.setItem("accessToken", user.accessToken);
+   navigate("/home", { replace: true });
 
     }catch(error){
       console.error(error)
