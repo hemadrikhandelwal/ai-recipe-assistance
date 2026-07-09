@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState ,useContext } from "react";
 import { login } from "../services/authService";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
+
 
 function LoginPage() {
 
   const [username, setUsername] = useState('');
   const [password , setPassword] = useState('');
   const [showPassword,setShowPassword] = useState(false);
+  const { login:loginUser } = useContext(AuthContext)
   const navigate = useNavigate();
 
-  const handleLogin = async ()=>{
+  const handleLogin = async (event)=>{
     event.preventDefault()
     try{
       
@@ -18,9 +21,10 @@ function LoginPage() {
       password
     }
     );
-    console.log(user);
-    localStorage.setItem("accessToken", user.accessToken);
+    
+    loginUser(user);
    navigate("/home", { replace: true });
+  
 
     }catch(error){
       console.error(error)
