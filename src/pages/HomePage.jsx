@@ -12,20 +12,7 @@ const Home = () => {
     navigate("/", { replace: true });
   };
 
-  return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold mb-6">
-        Home Page
-      </h1>
 
-      <button
-        onClick={handleLogout}
-        className="bg-red-600 text-white px-4 py-2 rounded"
-      >
-        Logout
-      </button>
-    </div>
-  );
 };
 
 export default Home;
