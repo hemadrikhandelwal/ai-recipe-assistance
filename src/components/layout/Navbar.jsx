@@ -23,9 +23,6 @@ function Navbar() {
 
           <NavLink to="/search">Search</NavLink>
 
-          <NavLink to="/my-booking">
-            My Bookings
-          </NavLink>
 
           <button
             onClick={handleLogout}
