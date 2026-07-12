@@ -48,32 +48,6 @@ function HomePage() {
             </p>
           </Link>
 
-          <Link
-            to="/categories"
-            className="rounded-xl border p-8 hover:shadow-lg transition"
-          >
-            <h3 className="text-xl font-semibold">
-              🍔 Browse Categories
-            </h3>
-
-            <p className="text-gray-600 mt-3">
-              Explore recipes by category like Seafood,
-              Dessert, Vegetarian and more.
-            </p>
-          </Link>
-
-          <Link
-            to="/areas"
-            className="rounded-xl border p-8 hover:shadow-lg transition"
-          >
-            <h3 className="text-xl font-semibold">
-              🌍 Browse Cuisines
-            </h3>
-
-            <p className="text-gray-600 mt-3">
-              Discover recipes from cuisines around the world.
-            </p>
-          </Link>
 
         </div>
 
