@@ -14,3 +14,17 @@ export async function searchRecipes(query){
         throw error;
     }
 }
+
+export async function getRecipeDetails(id) {
+  const response = await fetch(
+    `${BASE_URL}/lookup.php?i=${id}`
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch recipe");
+  }
+
+  const data = await response.json();
+
+  return data.meals?.[0];
+}
